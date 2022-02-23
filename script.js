@@ -31,13 +31,33 @@ const showDisplayMeals =  meals =>{
         mealDiv.innerHTML = `
         <img class="meal-img" width="300px" src="${meal.strMealThumb}" alt="" />
         <p>${meal.strMeal}</p> 
-        <button class="details">Details</button>      
+        <button onclick="showDetails(${meal.idMeal})"class="details">Details</button>      
         `
-        // <img src="${meal.strMealThumb} alt="" />
         display.appendChild(mealDiv)
         document.getElementById("error-text").innerText = '';
     });
    }
    
+}
+const showDetails = async details =>{
+    try {
+        const url = `https://www.themealdb.com/api/json/v1/1/lookup.php?i=${details}`;
+        const res = await fetch(url)
+        const detail= await res.json()
+        showDetailsDisplay(detail.meals[0])
+    } catch (error) {
+        console.log(error)
+    }
+}
+
+const showDetailsDisplay = detailMeals =>{
+    const showDisplayDetails = document.getElementById("display-details");
+    showDisplayDetails.textContent = "";
+    document.getElementById("display").textContent = "";
+    showDisplayDetails.innerHTML = `
+    <img class="meal-img" width="300px" src="${detailMeals.strMealThumb}" alt="" />
+    <p>${detailMeals.strMeal}</p>
+    <a target="_blank" class="details" href="${detailMeals.strYoutube}">Go Youtube</a>
+    `
 }
 
