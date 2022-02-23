@@ -9,13 +9,24 @@
   </head>
   <body>
     <main>
-      <div class="search-section">
-        <h2>Welcome to the meal Bd</h2>
-        <div class="search">
-          <input class="input" type="text" placeholder="search your meal" />
-          <button class="search-button">search</button>
+      <section>
+        <div class="search-section">
+          <h2>Welcome to the meal Bd</h2>
+          <div class="search">
+            <input
+              id="search-input"
+              class="input"
+              type="text"
+              placeholder="search your meal"
+            />
+            <button onclick="loadMeals()" class="search-button">search</button>
+          </div>
         </div>
-      </div>
+      </section>
+
+      <!-- show display meal -->
+      <section id="display" class="display"></section>
+      <div id="error-text"></div>
     </main>
     <script src="./script.js"></script>
   </body>
