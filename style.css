@@ -1,0 +1,15 @@
+.search-section {
+  text-align: center;
+}
+.search-section h2 {
+  color: #fff;
+  font-size: 35px;
+}
+.input {
+  width: 50%;
+  outline: none;
+  padding: 5px;
+}
+body {
+  background-color: #2d2013;
+}
